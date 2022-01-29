@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private bool _pressedJumpButton;
     private Vector3 _moveDirection;
 
+    [SerializeField] private Animator _anim;
     [SerializeField] private CharacterController _controller;
     [SerializeField] private float _speed;
     [SerializeField] private float _gravity;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
         if(_controller.isGrounded == true)
         {
             _moveDirection = direction;
+            _anim.SetFloat("Speed", Mathf.Abs(_moveDirection.z));
             _moveDirection *= _speed;
             if (_pressedJumpButton == true)
             {
