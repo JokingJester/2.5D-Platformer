@@ -138,6 +138,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6832891438811464629, guid: fed93fa8a544f58499f05fce7284f2b0, type: 3}
+      propertyPath: dd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832891438811464629, guid: fed93fa8a544f58499f05fce7284f2b0, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 776327862}
     - target: {fileID: 6832891438811464630, guid: fed93fa8a544f58499f05fce7284f2b0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -148,11 +156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832891438811464630, guid: fed93fa8a544f58499f05fce7284f2b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 68.95975
+      value: 74.4
       objectReference: {fileID: 0}
     - target: {fileID: 6832891438811464630, guid: fed93fa8a544f58499f05fce7284f2b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 104.594765
+      value: 105.43
       objectReference: {fileID: 0}
     - target: {fileID: 6832891438811464630, guid: fed93fa8a544f58499f05fce7284f2b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -235,6 +243,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &776327862 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6832891439573532413, guid: fed93fa8a544f58499f05fce7284f2b0, type: 3}
+  m_PrefabInstance: {fileID: 294721048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &968680925
 GameObject:
   m_ObjectHideFlags: 0

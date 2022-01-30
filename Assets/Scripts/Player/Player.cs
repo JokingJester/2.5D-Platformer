@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class Player : MonoBehaviour
 
     public void Movement(Vector3 direction)
     {
+        if (Keyboard.current.eKey.isPressed)
+        {
+            _anim.applyRootMotion = true;
+            _anim.SetTrigger("ClimbUp");
+        }
         if(_controller.isGrounded == true)
         {
             _anim.SetBool("Jump", false);
@@ -33,7 +39,6 @@ public class Player : MonoBehaviour
 
             if (_pressedJumpButton == true)
             {
-                _anim.SetBool("Jump", false);
                 _anim.SetBool("Jump", true);
                 _moveDirection.y = _jumpHeight;
                 _pressedJumpButton = false;
@@ -53,6 +58,16 @@ public class Player : MonoBehaviour
         _controller.enabled = false;
         _anim.SetBool("GrabLedge", true);
         _anim.SetFloat("Speed", 0);
+        _anim.SetBool("Jump", false);
         transform.position = handPos;
+    }
+
+    public void FinishClimb(Vector3 finalPos, Transform model)
+    {
+        _anim.applyRootMotion = false;
+        transform.position = finalPos;
+        _controller.enabled = true;
+        _anim.SetBool("GrabLedge", false);
+        model.transform.localPosition = Vector3.zero;
     }
 }
