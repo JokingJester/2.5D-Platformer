@@ -27,14 +27,13 @@ public class Player : MonoBehaviour
             _anim.SetFloat("Speed", Mathf.Abs(_moveDirection.z));
             _moveDirection *= _speed;
             var rotation = transform.rotation;
-            if (_moveDirection.z < 0)
-                rotation.y = 180;
-            else if (_moveDirection.z > 0)
-                rotation.y = 0;
+            if (_moveDirection.z != 0)
+                rotation.y = _moveDirection.z < 0 ? 180 : 0;
             transform.rotation = rotation;
 
             if (_pressedJumpButton == true)
             {
+                _anim.SetBool("Jump", false);
                 _anim.SetBool("Jump", true);
                 _moveDirection.y = _jumpHeight;
                 _pressedJumpButton = false;
