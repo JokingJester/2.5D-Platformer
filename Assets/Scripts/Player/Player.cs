@@ -47,4 +47,12 @@ public class Player : MonoBehaviour
     {
         _pressedJumpButton = true;
     }
+
+    public void GrabLedge(Vector3 handPos)
+    {
+        _controller.enabled = false;
+        _anim.SetBool("GrabLedge", true);
+        _anim.SetFloat("Speed", 0);
+        transform.position = handPos;
+    }
 }
