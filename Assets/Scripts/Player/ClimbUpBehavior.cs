@@ -23,7 +23,7 @@ public class ClimbUpBehavior : StateMachineBehaviour
     {
         player = animator.transform.parent.transform.parent.transform.GetComponent<Player>();
         if (player != null)
-            player.FinishClimb(finishPos, animator.transform);
+            player.FinishClimb(animator.transform);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

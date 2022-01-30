@@ -21,11 +21,6 @@ public class Player : MonoBehaviour
 
     public void Movement(Vector3 direction)
     {
-        if (Keyboard.current.eKey.isPressed)
-        {
-            _anim.applyRootMotion = true;
-            _anim.SetTrigger("ClimbUp");
-        }
         if(_controller.isGrounded == true)
         {
             _anim.SetBool("Jump", false);
@@ -53,6 +48,12 @@ public class Player : MonoBehaviour
         _pressedJumpButton = true;
     }
 
+    public void ClimbLedge()
+    {
+        _anim.applyRootMotion = true;
+        _anim.SetTrigger("ClimbUp");
+    }
+
     public void GrabLedge(Vector3 handPos)
     {
         _controller.enabled = false;
@@ -62,10 +63,11 @@ public class Player : MonoBehaviour
         transform.position = handPos;
     }
 
-    public void FinishClimb(Vector3 finalPos, Transform model)
+    public void FinishClimb(Transform model)
     {
         _anim.applyRootMotion = false;
-        transform.position = finalPos;
+        Vector3 finalPosition = transform.position + new Vector3(0,6.23f, 2.11f);
+        transform.position = finalPosition;
         _controller.enabled = true;
         _anim.SetBool("GrabLedge", false);
         model.transform.localPosition = Vector3.zero;

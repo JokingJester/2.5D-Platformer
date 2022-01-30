@@ -12,6 +12,12 @@ public class PlayerInputReader : MonoBehaviour
         _input = new GameInputs();
         _input.Player.Enable();
         _input.Player.Jump.performed += Jump_performed;
+        _input.Player.Climb.performed += Climb_performed;
+    }
+
+    private void Climb_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        _player.ClimbLedge();
     }
 
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
