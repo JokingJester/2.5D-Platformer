@@ -22,11 +22,13 @@ public class Player : MonoBehaviour
     {
         if(_controller.isGrounded == true)
         {
+            _anim.SetBool("Jump", false);
             _moveDirection = direction;
             _anim.SetFloat("Speed", Mathf.Abs(_moveDirection.z));
             _moveDirection *= _speed;
             if (_pressedJumpButton == true)
             {
+                _anim.SetBool("Jump", true);
                 _moveDirection.y = _jumpHeight;
                 _pressedJumpButton = false;
             }
